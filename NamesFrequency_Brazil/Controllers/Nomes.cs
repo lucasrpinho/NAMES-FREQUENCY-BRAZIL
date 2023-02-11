@@ -14,7 +14,7 @@ namespace NamesFrequency_Brazil.Controllers
     public class Nomes : ControllerBase
     {
         [HttpGet("{id}")]
-        public async Task<NomeStatsMax[]> Get(string name, char sexo)
+        public async Task<NomeStatsMax[]> Get(string name, string sexo)
         {
             try
             {

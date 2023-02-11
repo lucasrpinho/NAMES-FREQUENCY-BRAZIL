@@ -15,9 +15,10 @@ namespace ConsultaNomes
             Console.WriteLine(Environment.NewLine + "Digite o nome: ");
             string nome = Console.ReadLine();
             Console.WriteLine("Digite o sexo (M / F): ");
-            char sexo = Console.ReadLine()[0];
-            if (string.IsNullOrEmpty(nome))
+            string sexo = Console.ReadLine();
+            if (string.IsNullOrEmpty(nome) || nome.Length < 3)
             {
+                Console.WriteLine("O nome não pode ser vazio ou conter menos que três caracteres!");
                 for (retrys = 0; retrys < 3; retrys++)
                 {
                     Console.WriteLine(Environment.NewLine + "Digite um nome: "); nome = Console.ReadLine();
@@ -30,10 +31,24 @@ namespace ConsultaNomes
                     }
                 }
             }
+
+            if (sexo == string.Empty) { 
+                Console.WriteLine("Digite o sexo: (M / F): ");
+                sexo = Console.ReadLine();
+            }
+            else
+            {
+                if (sexo[0].ToString().ToUpper() != "M" && sexo[0].ToString().ToUpper() != "F")
+                {
+                    Console.WriteLine("O sexo digitado é inválido!");
+                    Console.WriteLine("Digite o sexo (M / F): ");
+                    sexo = Console.ReadLine();
+                }
+            }
             Nomes api = new Nomes();
             NomeStatsMax[] obj = await api.Get(nome, sexo);
 
-            if (obj == null) { throw new Exception("A requisição não obteve resposta!"); }
+            if (obj == null || obj.Count() == 0) { Console.WriteLine("A busca não encontrou resultados para o nome informado. "); Console.ReadKey(); }
             else
             {
                 Console.WriteLine(Environment.NewLine + "-------------- RESULTADO -------------- ");
