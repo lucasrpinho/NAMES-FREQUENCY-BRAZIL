@@ -59,6 +59,8 @@ namespace ConsultaNomes
                 Console.WriteLine("Estado com maior incidência do nome: " + obj[0].ufMax);
                 Console.WriteLine("Proporção no Estado com maior incidência: " + obj[0].ufMaxProp);
                 Console.WriteLine("Nomes parecidos: " + obj[0].nomes);
+
+                NomePublisher.SendData(obj[0]);
             }
 
         }

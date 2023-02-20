@@ -1,0 +1,1 @@
+{"rank":8,"nome":"LUCAS","freq":1116818,"regiao":0,"percentual":0.61,"ufMax":"Distrito Federal","ufMaxProp":"743.1444","sexo":"M","nomes":"ALUCAS,LUCAZ,LUKAS"}
